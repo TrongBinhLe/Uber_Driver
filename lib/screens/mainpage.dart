@@ -1,8 +1,9 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
-  static final String routeName = '/main_page';
+  static const String routeName = '/main_page';
   @override
   _MainPageState createState() => _MainPageState();
 }
@@ -16,7 +17,11 @@ class _MainPageState extends State<MainPage> {
       ),
       body: Center(
         child: MaterialButton(
-          onPressed: () {},
+          onPressed: () {
+            DatabaseReference ref =
+                FirebaseDatabase.instance.reference().child('testing');
+            ref.set('testing connection');
+          },
           color: Colors.blue,
           minWidth: 200,
           child: Text('Hello'),
