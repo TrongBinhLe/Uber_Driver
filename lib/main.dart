@@ -1,18 +1,19 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:uber_driver/screens/mainpage.dart';
-import 'dart:io';
+import 'package:uber_driver/screens/registration.dart';
 
-Future main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  final FirebaseApp app = await FirebaseApp.configure(
+  await Firebase.initializeApp(
     name: 'db2',
-    options: Platform.isIOS
-        ? const FirebaseOptions(googleAppID: '', apiKey: '', databaseURL: '')
-        : const FirebaseOptions(
-            googleAppID: '1:233591750828:android:515619b2267dff8fc75f09',
-            apiKey: 'AIzaSyAXXXz9v0KdiLYFJorygMpVW0y_HhbNgtI',
-            databaseURL: 'https://uber-now-e8f0c-default-rtdb.firebaseio.com/'),
+    options: const FirebaseOptions(
+      appId: '1:233591750828:android:6244909e9557a08ac75f09',
+      apiKey: 'AIzaSyAXXXz9v0KdiLYFJorygMpVW0y_HhbNgtI',
+      messagingSenderId: '233591750828',
+      databaseURL: 'https://uber-now-e8f0c-default-rtdb.firebaseio.com/',
+      projectId: 'uber-now-e8f0c',
+    ),
   );
   runApp(MyApp());
 }
